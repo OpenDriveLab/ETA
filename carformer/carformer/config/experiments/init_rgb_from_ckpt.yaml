@@ -1,0 +1,5 @@
+# @package _global_
+training:
+  rgb_backbone:
+    init_from_ckpt:
+      enabled: true

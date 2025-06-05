@@ -1,0 +1,7 @@
+defaults:
+- default_goal
+dual_target_point:
+  name: dual_target_point
+  width: 4
+  mean: [[ 5.1162534 , -0.1575937 ],[26.005814  , -0.09633584]]
+  std: [[ 0.8992543,  0.9467049],[15.428605 ,  6.614513 ]]

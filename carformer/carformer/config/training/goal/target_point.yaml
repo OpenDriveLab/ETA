@@ -1,0 +1,7 @@
+defaults:
+- default_goal
+target_point:
+  name: target_point
+  width: 2
+  mean: [5.1162534, -0.1575937]
+  std: [0.8992543, 0.9467049]

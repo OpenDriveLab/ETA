@@ -1,0 +1,10 @@
+defaults:
+  - optimizer: adamw
+  - scheduler: linear_warmup
+debug: False
+lr: 3e-5
+max_grad_norm: 1.0
+batch_size: 128
+gradient_accumulation_steps: 1
+num_epochs: 200
+patience: 40

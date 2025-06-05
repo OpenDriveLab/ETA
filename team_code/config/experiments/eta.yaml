@@ -1,0 +1,30 @@
+BASE_PORT: 30000
+BASE_TM_PORT: 50000
+IS_BENCH2DRIVE: True
+BASE_ROUTES: leaderboard/data/bench2drive220
+
+BASE_CHECKPOINT_ENDPOINT: endpoint
+SAVE_PATH: ./dummy
+PLANNER_TYPE: only_traj
+
+agent: ${user.working_dir}/Bench2DriveZoo/team_code/eta_agent.py
+runnickname: 
+root_path: ${user.working_dir}
+ponderer_model_name: 
+agent_root: ${root_path}/${experiments.ponderer_model_name}
+ghost_agent_root: null
+ghost_only_viz: False
+
+epoch_num: 37
+
+creep_delay: 100
+creep_duration: 10
+use_creep: True
+
+
+steer_damping: 0.5 
+use_gt_frc: null
+
+# Bench2Drive related
+routes_subset: 
+b2d_path: ${user.b2d_path}

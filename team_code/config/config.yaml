@@ -1,0 +1,55 @@
+defaults:
+  - user: example
+  - experiments: eta
+  - eval: b2d
+
+host: localhost
+port: 2000
+trafficManagerPort: 8000
+traffic_manager_port: ${trafficManagerPort}
+trafficManagerSeed: 0
+dataProviderSeed: 0
+debug: 0
+viz: 0
+viz_interval: 50
+viz_max: 2000
+viz_extra: 0
+record: ''
+timeout: 600.0
+
+hydra:
+  run:
+    dir: ${experiments.agent_root}/${save_path}/${experiments.runnickname}
+  job:
+    config:
+      override_dirname:
+        exclude_keys:
+          - eval
+          - experiments
+          - experiments.wanderer_model_name
+          - experiments.ponderer_model_name
+          - port
+          - trafficManagerPort
+          - experiments.epoch_num
+          - experiments.use_gru_output
+          - user
+          - traffic_manager_seed
+        kv_sep: '='
+        item_sep: '_'    
+    env_set:
+      OMP_NUM_THREADS: 1
+
+repetitions: 1
+track: SENSORS
+resume: 1
+save_path: evallogs
+log_save_path: result_logs
+checkpoint_file: results.json
+debug_checkpoint: ${hydra:run.dir}/debug/${checkpoint_file}
+checkpoint: ${hydra:run.dir}/${checkpoint_file}
+traffic_manager_seed: 0
+
+
+DEBUG_CHALLENGE: 0
+CUDA_VISIBLE_DEVICES: 0
+SEED_OFFSET: 0

@@ -1,0 +1,47 @@
+defaults: 
+  - default
+  - override action:
+    - waypoints
+    - path
+  - override goal:
+    - target_point
+quantized: true
+
+loss_params:
+  wp_loss: 1.0
+  path_loss: 1.0
+  mask_loss: 0.0625
+  state_forecast: 0.5
+  bev: {} # Nothing
+
+# For waypoints
+num_waypoints: 10
+num_path: 20
+future_horizon: ${training.num_waypoints}
+# Forecasting
+use_future_vehicle_forecast: false
+vae_target_supervision: null
+
+use_predicted_latent_with_gap: false
+pred_latent_layers: 2
+pred_latent_ffn_hidden: 2048
+pred_latent_ffn_dropout: 0.1
+pred_latent_post_mlp: false
+pred_latent_use_metadata: true
+use_real_latent_ratio: 0.0
+
+# action gap (for future action offset)
+action_gap: 
+
+# Supplemental supervision
+gen_masks_for_action: True
+
+normalize_goal: True
+create_goal_mask: True
+
+use_gt_frc: false
+zero_out_frc_branch: false
+use_gt_frc_only: false
+ignore_past_for_length: false
+
+use_past_horizon_states: false

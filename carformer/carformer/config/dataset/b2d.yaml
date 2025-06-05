@@ -1,0 +1,4 @@
+dataset_path_rel: B2D-base
+data_format: "b2d"
+subsample_ratio: 1.0
+fps: 10

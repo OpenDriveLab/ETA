@@ -1,0 +1,83 @@
+defaults: 
+  - user: shadi
+  - backbone: llama-mini
+  - training: quantized
+  - hyperparams: default
+  - dataset: b2d
+  - logging: wandb
+  - deepspeed: disable
+  - _self_
+
+hydra:
+  run:
+    dir: checkpoints/${expname}/${sanitize:'${hydra.job.override_dirname}_bev=${training.bev_type}'}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    chdir: False
+    config:
+      override_dirname:
+        exclude_keys:
+          - expname
+          - training/bev
+          - num_workers
+          - dataset.dataset_path_rel
+          - user
+          - preload_in_memory
+          - augmentable_preloader
+          - preload
+          - visualize
+          - amp
+          - multi_gpu_strategy
+          - user.dataset_dir
+          - cpu
+          - gpus
+          - ckpt_path
+          - deepspeed
+          - training.parallel_dataset_init
+          - force_save
+          - visualize_start_epoch
+          - force_log
+          - overfit_batches
+          - start_saving_epoch
+          - nodes
+          - logging.track_weight_changes
+        kv_sep: '='
+        item_sep: '_'
+
+seed: 1234
+debug: False
+visualize: True
+visualize_start_epoch: -1
+visualize_interval: 1
+overfit: 0
+cpu: False
+gpus: ${oc.decode:${oc.env:WORLD_SIZE,1}}
+multi_gpu_strategy: ddp
+amp: True
+num_workers: 20
+early_stopping: False
+early_stopping_patience: 5
+early_stopping_metric: action_classification_loss
+
+save_every: 1
+start_saving_epoch: -1
+force_save: False
+force_log: False
+
+expname: TRAINING
+wandb_name: training_PlanT_${hydra:job.override_dirname}
+wandb_tag: 
+save_dir: ${hydra:run.dir}
+cp_command_dir: ${user.working_dir}/cpcommands
+
+data_dir: ${user.dataset_dir}/${dataset.dataset_path_rel} # Path to the data directory and name of data folder
+preload: True
+preload_in_memory: False
+augmentable_preloader: False
+cache_dir: ${user.working_dir}/.cache/
+wipe_cache: False
+
+use_deepspeed: False
+ckpt_path: null
+gradient_checkpointing: False
+overfit_batches: 1
+nodes: 1

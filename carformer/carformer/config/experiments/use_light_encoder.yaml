@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+- /training/bev/rgb_backbone@training.light_rgb_backbone: llava1pt6
+- /backbone@backbone: llama-micro
+- _self_
+
+light_select_layer: 8
+training:
+  utilize_fast_current_latent: True
+  use_light_as_query: False
+  light_rgb_backbone:
+    select_layer: ${light_select_layer}
+    ema_enabled: False
+    model_path: ${user.working_dir}/${training.light_rgb_backbone.model_path_rel}

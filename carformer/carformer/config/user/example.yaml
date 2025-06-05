@@ -1,0 +1,4 @@
+dataset_dir: /leonardo_work/shamdan/
+working_dir: /leonardo/home/userexternal/shamdan0/research/Carformer
+
+wandb_entity: shadihamdan

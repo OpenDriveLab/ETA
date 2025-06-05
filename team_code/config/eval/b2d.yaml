@@ -1,0 +1,4 @@
+BENCHMARK: b2d
+BENCHMARKNICKNAME: b2dfull
+route_rel: leaderboard/data/bench2drive220.xml
+routes: ${user.working_dir}/${eval.route_rel}

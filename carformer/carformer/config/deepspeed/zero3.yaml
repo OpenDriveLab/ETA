@@ -1,0 +1,28 @@
+defaults:
+- default
+bf16:
+  enabled: true
+zero_optimization:
+  stage: 3
+  overlap_comm: true
+  contiguous_gradients: true
+  sub_group_size: 1000000000
+  reduce_bucket_size: 500000000
+  stage3_prefetch_bucket_size: 500000000
+  stage3_param_persistence_threshold: 1000000
+  stage3_max_live_parameters: 1000000000
+  stage3_max_reuse_distance: 1000000000
+  stage3_gather_16bit_weights_on_model_save: false
+# optimizer:
+#   type: AdamW
+#   params:
+#     lr: 5e-5
+#     betas: 
+#     - 0.9
+#     - 0.999
+#     eps: 1e-6
+#     weight_decay: ${hyperparams.optimizer.kwargs.weight_decay}
+gradient_clipping: 1
+steps_per_print: 5
+train_micro_batch_size_per_gpu: ${hyperparams.batch_size}
+stage3_gather_16bit_weights_on_model_save: true

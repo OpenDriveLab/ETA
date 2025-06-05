@@ -1,0 +1,22 @@
+# @package training
+defaults: 
+  - _self_
+  - rgb_backbone: llava1pt6
+
+bev:
+  rgb_front:
+    name: rgb_front
+
+rgb_crop:
+  type: dualcenter
+  crop_size: ${eval:'${training.rgb_backbone.input_size} * 2'}
+  resize: ${training.rgb_backbone.input_size}
+  
+
+tokenized_state: False
+object_level: False
+ema_enabled: False
+ema_decay: 0.992
+ema_every_steps: 1
+ema_start: 0
+ema_end_epoch: -1

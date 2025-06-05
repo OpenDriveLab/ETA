@@ -1,0 +1,35 @@
+model_path_rel: bin/rgb/llava-v1.6-vicuna-visionenc
+model_path: ${user.working_dir}/${training.rgb_backbone.model_path_rel}
+
+frozen: 
+  model: False
+  ema_model: False
+  projector: False
+
+outputs:
+  whole: false
+  patches: true
+
+projection_dim: ${backbone.hidden_size}
+
+input_size: 336
+select_layer: -2
+dropout_attn: 0.0
+masking_rate: 0.0
+
+try_to_truncate_layers: true
+
+override_kwargs:
+  attention_dropout: ${training.rgb_backbone.dropout_attn}
+
+downsample: True
+ema_enabled: ${training.ema_enabled}
+
+init_from_ckpt:
+  enabled: False
+  ckpt_path_rel: bin/rgb/llava-v14-micro.pt
+  ckpt_path: ${user.working_dir}/${training.rgb_backbone.init_from_ckpt.ckpt_path_rel}
+  projector: true
+  ema_model: true
+  model: true
+  freeze: true
