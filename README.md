@@ -1,4 +1,4 @@
-# ETA
+# 🤔 ETA
 
 ## Highlight
 We propose "Efficiency through Thinking Ahead" (ETA), an asynchronous dual-system that pre-processes information from past frames using a large model in tandem with processing the current information with a small model to enable real-time decisions with strong performance.
