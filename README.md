@@ -24,7 +24,16 @@ We propose "**E**fficiency through **T**hinking **A**head" (ETA), an asynchronou
 
 ## Getting Started <a name="gettingstarted"></a>
 
-Please refer to [TRAIN_EVAL.md](docs/TRAIN_EVAL.md) for detailed instructions on how to train and evaluate the model.
+To get started with ETA:
+- Training
+  - [Download Bench2Drive Data](docs/TRAIN_EVAL.md#b2ddata)  
+  - [Setup other prerequisites](docs/TRAIN_EVAL.md#trainingsetup)
+  - [Start training](docs/TRAIN_EVAL.md#training)
+- Evaluation
+  - [Setup Bench2Drive](docs/TRAIN_EVAL.md#evalsetup)
+  - [Setup files and configs](docs/TRAIN_EVAL.md#evalfilesetup)
+  - [Download checkpoints](docs/TRAIN_EVAL.md#evalcheckpoints)
+  - [Run evaluation](docs/TRAIN_EVAL.md#runeval)
 
 ## TODO List
 - [x] ETA Training code
