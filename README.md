@@ -23,10 +23,10 @@ If you find our project useful for your research, please consider citing our pap
 
 
 ```bibtex
-@inproceedings{hamdan2025_eta,
- title={ETA: Efficiency through Thinking Ahead, A Dual Approach to Self-Driving with Large Models}, 
- author={Shadi Hamdan and Chonghao Sima and Zetong Yang and Hongyang Li and Fatma Guney},
- booktitle={TODO},
- year={2025},
+@article{hamdan2025eta,
+  title={ETA: Efficiency through Thinking Ahead, A Dual Approach to Self-Driving with Large Models},
+  author={Hamdan, Shadi and Sima, Chonghao and Yang, Zetong and Li, Hongyang and G{\"u}ney, Fatma},
+  journal={arXiv preprint arXiv:2506.07725},
+  year={2025}
 }
 ```
