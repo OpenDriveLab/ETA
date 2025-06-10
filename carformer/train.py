@@ -17,7 +17,6 @@ def main(cfg):
 
     args = cfg
 
-    # NCCL_DEBUG=WARN HF_ENDPOINT=https://hf-mirror.com OMP_NUM_THREADS=6 python  train_hydra_ds_lightning.py deepspeed=zero2 hyperparams.batch_size=16 hyperparams.num_epochs=40 user=shadihamdan wandb_tag=finalrun_v6dlc_basedata_llava1pt6 training/bev/rgb_backbone@training.rgb_backbone=llava1pt6 dataset.dataset_path_rel=B2D-base gpus=8 hyperparams.gradient_accumulation_steps=2 training.parallel_dataset_init=False 'ckpt_path="/cpfs01/user/shadihamdan/research/Carformer/checkpoints/TRAINING/bs=16_gradient_accumulation_steps=2_eps=40_training_bev_rgb_backbonergb_backbone=llava1pt6_wnb=finalrun_v6dlc_basedata_llava1pt6_data=B2D-base_bev=rgb_front/2024-08-20_18-53-38/last.ckpt"'
     if args.ckpt_path is not None:
         print("Loading model from checkpoint")
         cfg.save_dir = os.path.dirname(args.ckpt_path)

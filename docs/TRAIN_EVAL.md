@@ -1,4 +1,4 @@
-## Training Setup
+## Training Setup <a name="trainingsetup"></a>
 ### Bench2Drive data
 Download the [Bench2Drive](https://github.com/Thinklab-SJTU/Bench2Drive) dataset and unzip all the directories. 
 
@@ -30,7 +30,7 @@ make ETA_base_model_s42
 make ETA_async_model_s42
 ```
 
-## Evaluation Setup
+## Evaluation Setup <a name="evalsetup"></a>
 
 ### Bench2Drive
 
